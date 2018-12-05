@@ -1,0 +1,144 @@
+/*@import "bootstrap-sprockets";*/
+/*@import "bootstrap";*/
+body {
+    color: white;
+    background: url("https://images.wallpaperscraft.ru/image/abstraktsiia_raznotsvetnyj_volnistyj_129751_1600x1200.jpg") no-repeat #1E1E1E center top;
+    background-attachment: fixed; /* Фон страницы фиксируется */
+	background-repeat: repeat-x; /* Изображение повторяется по горизонтали */
+  }
+
+a{
+    color:white;
+    text-decoration: none;
+}
+
+a:hover{
+   color: #FFC107;
+   text-decoration: none;
+}
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid silver;
+  }
+}
+
+#logo {
+  float: left;
+  /*margin-right: 10px;*/
+  font-size: 1.6em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  /*padding-top: 9px;*/
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+#debug {
+	border-radius: 20px;
+	padding: 10px;
+
+}
+/*Войти*/
+#signUp {
+	/*border-color: #343A40;*/
+}
+#signUp:hover{
+	background-color: #FFC107; /*#343A40*/
+	border-color: #343A40;
+}
+
+#signUp:hover>a{
+	color: #343A40;
+}
+/*app/vievs/users/show.html*/
+/* sidebar */
+
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+/*USERS*/
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+/*users new*/
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  /*@include box_sizing;*/
+}
+
+input {
+  height: auto !important;
+}
+
+/* Добавление кода для красивого блока с отладочной информацией, включая примесь Sass*/
+
+/*erors (erer_mesage sign up*/
+/*#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}*/

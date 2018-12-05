@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TaskOne</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' %>
+     <%= stylesheet_link_tag 'application', media: 'all',
+                                           'data-turbolinks-track' => true %>
+   
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <%= render 'layouts/shim' %>
+  </head>
+
+  <body>
+    
+    <%= render 'layouts/header' %>
+
+    <div class="container ">
+        <br>
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+        <%= yield %>
+        <br>
+        <hr><hr>
+    </div>
+    <%= render 'layouts/footer' %>
+    <br>    <br>    <br>
+    <div id= "debug" class="container bg-white rounded"><%= debug(params) if Rails.env.development? %></div>
+    
+
+  </body>
+</html>
