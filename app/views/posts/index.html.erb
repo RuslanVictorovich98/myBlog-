@@ -5,16 +5,14 @@
 
   <% @post.each do |post| %>
     <div class="alert shadow-lg  bg-dark rounded">
-        <a class="float-right" href=""><img width="40px"  class="rounded-circle" src="https://st.depositphotos.com/1779253/5140/v/950/depositphotos_51401141-stock-illustration-male-avatar-profile-picture-use.jpg" alt="nan">
-        Ruslan Victorovich</a>
-        <br>
+      <span class="float-right text-muted">
+        <%= current_user.name%>
+      </span><br>
     <h3><%= post.title %></h3>
     <div class="container">
       <p><%= post.body.truncate_words(40) %></p>
-      <!-- first(400) -->
     </div>
     <%= link_to "Читать далее", post_path(post), :class => 'btn btn-outline-warning' %>
-    <!-- <br> -->
     <p class="float-right text-muted">11 нояб. 2018г.</p>
     </div>
   <% end %>

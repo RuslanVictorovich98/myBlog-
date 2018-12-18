@@ -1,5 +1,18 @@
 class PostsController < ApplicationController
-  http_basic_authenticate_with name: 'admin', password: '1q2', except: [:index, :show]
+  # http_basic_authenticate_with name: 'admin', password: '1q22', except: [:index, :show]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :new] , except: [:index, :show]
+
+  # before_action :logged_in_user, only: [:index, :edit, :update, :destroy] 
+
+  # Подтверждает вход пользователя
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end  
 
   def index
     @post = Post.all #вытянет нам все статьи с @post
@@ -38,6 +51,8 @@ class PostsController < ApplicationController
   def create #сохранение данных поста в базу данных
     # render plain: params[:post].inspect
     @post = Post.new(post_params)
+    @post.user = current_user
+
 
     if (@post.save)
       redirect_to @post #если в 'post.rb' нету ошибок то перенаправляем нас на страницу,
@@ -48,6 +63,6 @@ class PostsController < ApplicationController
 
   #указуем разрешенны данные для передачи
   private def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :current_user, :body)
   end
 end

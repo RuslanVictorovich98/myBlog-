@@ -8,20 +8,19 @@
   <div class="container">
     <p><%= @post.body %></p>
     <!-- <br> -->
+    <p class="float-right text-muted"><%= @post.created_at %></p>
 
   </div>
   <hr>
   <div class="container float-right">
     <div class="float-right ">
-      <img width="40px"  class="rounded-circle" src="https://st.depositphotos.com/1779253/5140/v/950/depositphotos_51401141-stock-illustration-male-avatar-profile-picture-use.jpg" alt="nan">
-      <%= link_to "Ruslan Victorovich", about_path %>
+      <img class="rounded-circle" <%= gravatar_for @post.user, size: 40, :class => 'rounded-circle' %>
+      <%= @post.user.name %>
     </div>
     <%= link_to "Редактировать", edit_post_path(@post), :class => 'btn btn-warning' %>
     <%= link_to "Удалить пост", post_path(@post), method: :delete,
     data: {confirm: "Хотите удалить статью?"}, :class => 'btn btn-danger' %><br>
-
   </div>
-
 <br>
 <br>
 <h2>Все комментарии:</h2>
